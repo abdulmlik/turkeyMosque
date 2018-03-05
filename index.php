@@ -8,52 +8,15 @@
 		require_once ("sess.php");
 		$priv=$_SESSION['priv'];
 	}
+	$title = "صالة جامع التركي" ;
+	$name_page = str_replace(array(dirname($_SERVER['SCRIPT_NAME']), ".php"), "", $_SERVER['SCRIPT_NAME']);
+	$name_page = trim($name_page , '\/');
+	$PATH = "http://localhost/turkeyMosque/";
 ?>
 
-<html dir="rtl">
-
-<head>
-	<title> صالة جامع التركي </title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Abdulmalik Ben Ali">
-	<link rel="stylesheet" href="css/styles.css" type="text/css" />
-</head>
-
-<body>
-
-	<div id="wrap">
-		
-		<div id="header">
-		
-			<div id="logo">
-			
-				<!--  begin sitename/logo -->
-			
-				<h1><a href="index.php">جامع التركي</a></h1>
-				
-				<!-- end sitename/logo -->
-				
-			</div>
-		
-			<div id="nav">
-				<ul>
-				
-					<!-- begin top navigation -->
-					
-					<li class="selected"><a href="index.php" >الرئيسية</a></li>
-					<li><a href="insert/insert.php">حجز الصالة</a></li>
-					<li><a href="show/show.php">عرض الحجوزات</a></li>
-					<!--<li><a href="login.php">تسجيل الدخول</a></li>-->
-					<!--<li><a href="sinup.php">التسجيل</a></li>-->
-					<li><a href="call.php">اتصل بنا</a></li>
-					
-					<!-- end top navigation -->
-					
-				</ul>
-				
-			</div>
-			<div class="clear"></div>
-		</div>
+<!-- begin footer and page end -->
+<?php include("header.php"); ?>
+<!-- end footer and page end -->
 		
 	
 		<div id="page">
@@ -103,26 +66,7 @@
 			
 				<!-- being sidebar content -->
 				
-				<div class="sidebar-box brown-box">
-					<p>هذا الموقع يقوم بتنظيم الحجوزات صالة جامع التركي</p>
-				</div>
-					<br/>
-				<div class="sidebar-box">
-					<h4>الروابط</h4>
-					<ul>
-						<?php if($priv==0){ ?><li><a href="login.php">تسجيل الدخول</a></li>
-						<li><a href="sinup.php">التسجيل</a></li><?php } elseif($priv==1) { ?>
-						<li><a href="myaccount.php">حسابي </a></li>
-						<li><a href="settings/set.php">تعديل الحجوزات</a></li>
-						<li><a href="settings/set2.php">عرض الحجوزات حسب شهر</a></li><?php } elseif($priv==2) { ?>
-						<li><a href="myaccount.php">حسابي </a></li><?php } if( $priv!=0 ){ ?>
-						<li><a href="show/usershow.php" >حجوزاتي</a></li>
-						<li><a href="logout.php" >تسجيل الخروج</a></li><?php } ?>
-
-					</ul>
-				</div>
-				
-
+				<?php include("sidebar.php"); ?>
 				
 				<!-- end sidebar content -->
 				
@@ -132,29 +76,9 @@
 			
 		</div>
 		
-		<div class="footer">
-			<div class="footer-level-2">
-			
-				<!-- begin footer -->
-				
-				<p>
-					<a href="index.php">الرئيسية</a>
-					<a href="call.php">اتصل بنا</a>
-				</p>
-				
-				<!-- end footer -->
-				
-			</div>
-		</div>
-		<div class="page-end">
-			
-			<!-- begin page end -->
-			
-			<p>جميع الحقوق محفوظة &copy 2016-<?php echo date('Y'); ?> جامع التركي </p>
-			
-			<!-- end page end -->
-		
-		</div>
+		<!-- end footer and page end -->
+		<?php include("footer.php"); ?>
+		<!-- end footer and page end -->
 		
 	</div>
 

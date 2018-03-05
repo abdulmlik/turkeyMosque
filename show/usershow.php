@@ -34,88 +34,16 @@
 	$Count = $stmt->rowCount();
 	//$id=0;
 	$class="w";
+	
+	$title = "صالة جامع التركي" ;
+	$name_page = str_replace(array(dirname($_SERVER['SCRIPT_NAME']), ".php",'/'), "", $_SERVER['SCRIPT_NAME']);
+	$name_page = trim($name_page , '\/');
+	$PATH = "http://localhost/turkeyMosque/";
 ?>
 
-<html dir="rtl">
-
-<head>
-	<title> صالة جامع التركي </title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Abdulmalik Ben Ali">
-	<link rel="stylesheet" href="../css/styles.css" type="text/css" />
-	<style>
-		table{
-			padding: 40px;
-			
-		}
-		caption{
-			font-size: 22px;
-			margin-top: 10px;
-			color: darkslategrey;
-		}
-		td{
-			padding-left: 30px;
-			padding-right: 30px;
-			padding-bottom: 15px;
-			padding-top: 15px;
-			text-align: right;
-		}
-		.s{
-			background-color: darkslategrey;
-			color: white;
-		}
-		.w{
-			background-color: whitesmoke;
-		}
-		.q{
-			background-color: darkgray;
-		}
-		.e{
-			background-color: #991111;
-			color: white;
-		}
-		.e td{
-			text-align: center;
-		}
-	</style>
-</head>
-
-<body>
-
-	<div id="wrap">
-		
-		<div id="header">
-		
-			<div id="logo">
-			
-				<!--  begin sitename/logo -->
-			
-				<h1><a href="../index.php">جامع التركي</a></h1>
-				
-				<!-- end sitename/logo -->
-				
-			</div>
-		
-			<div id="nav">
-				<ul>
-				
-					<!-- begin top navigation -->
-					
-					<li><a href="../index.php" >الرئيسية</a></li>
-					<li><a href="../insert/insert.php">حجز الصالة</a></li>
-					<li><a href="../show/show.php">عرض الحجوزات</a></li>
-					<!--<li><a href="login.php">تسجيل الدخول</a></li>-->
-					<!--<li><a href="sinup.php">التسجيل</a></li>-->
-					<li><a href="../call.php">اتصل بنا</a></li>
-					
-					<!-- end top navigation -->
-					
-				</ul>
-				
-			</div>
-			<div class="clear"></div>
-		</div>
-		
+<!-- begin footer and page end -->
+<?php include("../header.php"); ?>
+<!-- end footer and page end -->		
 	
 		<div id="page">
 		
@@ -124,13 +52,13 @@
 			
 				<!-- begin main content -->
 			
-				<table>
-					<caption>حجوزاتي</caption>
+				<table class="table">
+					<caption id="caption">حجوزاتي</caption>
 					<tr class="s">
-						<td>رقم الحجز</td>
-						<td>تاريخ الحجز</td>
-						<td>نوع الحجز</td>
-						<td>إلغاء الحجز</td>
+						<td class="td">رقم الحجز</td>
+						<td class="td">تاريخ الحجز</td>
+						<td class="td">نوع الحجز</td>
+						<td class="td">إلغاء الحجز</td>
 					</tr>
 					<?php
 					if($Count > 0){
@@ -141,19 +69,19 @@
 							if($row['type']==1){
 								echo"
 									<tr class='$class'>
-										<td>{$id}</td>
-										<td>{$row['date']}</td>
-										<td>حجز نهائي</td>
-										<td><a href='usershow.php?box=delete&id={$row['no']}'>إلغاء</a></td>
+										<td class='td'>{$id}</td>
+										<td class='td'>{$row['date']}</td>
+										<td class='td'>حجز نهائي</td>
+										<td class='td'><a href='usershow.php?box=delete&id={$row['no']}'>إلغاء</a></td>
 									</tr>
 								";
 							}else{
 								echo"
 									<tr class='$class'>
-										<td>{$id}</td>
-										<td>{$row['date']}</td>
-										<td>حجز مبدئي</td>
-										<td><a href='usershow.php?box=delete&id={$row['no']}'>إلغاء</a></td>
+										<td class='td'>{$id}</td>
+										<td class='td'>{$row['date']}</td>
+										<td class='td'>حجز مبدئي</td>
+										<td class='td'><a href='usershow.php?box=delete&id={$row['no']}'>إلغاء</a></td>
 									</tr>
 								";
 							}
@@ -164,7 +92,7 @@
 							}
 						}
 					}else{
-						echo'<tr class="e"><td colspan="4">لا توجد حجوزات</td></tr>';
+						echo'<tr class="e"><td class="td" colspan="4">لا توجد حجوزات</td></tr>';
 					}
 					?>
 				</table>
@@ -182,26 +110,7 @@
 			
 				<!-- being sidebar content -->
 				
-				<div class="sidebar-box brown-box">
-					<p>هذا الموقع يقوم بتنظيم الحجوزات صالة جامع التركي</p>
-				</div>
-					<br/>
-				<div class="sidebar-box">
-					<h4>الروابط</h4>
-					<ul>
-						<?php if($priv==0){ ?><li><a href="../login.php">تسجيل الدخول</a></li>
-						<li><a href="../sinup.php">التسجيل</a></li><?php } elseif($priv==1) { ?>
-						<li><a href="../myaccount.php">حسابي </a></li>
-						<li><a href="../settings/set.php">تعديل الحجوزات</a></li>
-						<li><a href="../settings/set2.php">عرض الحجوزات حسب شهر</a></li><?php } elseif($priv==2) { ?>
-						<li><a href="../myaccount.php">حسابي </a></li><?php } if( $priv!=0 ){ ?>
-						<li><a href="usershow.php" >حجوزاتي</a></li>
-						<li><a href="../logout.php" >تسجيل الخروج</a></li><?php } ?>
-
-					</ul>
-				</div>
-				
-
+				<?php include("../sidebar.php"); ?>
 				
 				<!-- end sidebar content -->
 				
@@ -211,29 +120,9 @@
 			
 		</div>
 		
-		<div class="footer">
-			<div class="footer-level-2">
-			
-				<!-- begin footer -->
-				
-				<p>
-					<a href="index.php">الرئيسية</a>
-					<a href="call.php">اتصل بنا</a>
-				</p>
-				
-				<!-- end footer -->
-				
-			</div>
-		</div>
-		<div class="page-end">
-			
-			<!-- begin page end -->
-			
-			<p>جميع الحقوق محفوظة &copy 2016-<?php echo date('Y'); ?> جامع التركي </p>
-			
-			<!-- end page end -->
-		
-		</div>
+		<!-- end footer and page end -->
+		<?php include("../footer.php"); ?>
+		<!-- end footer and page end -->
 		
 	</div>
 
