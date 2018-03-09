@@ -2,7 +2,16 @@
 
 online booking system
 
-This project is a homework
-I do not allow using it as homework for any student or for commercial purposes
-Otherwise allow it to be used 
+===========
+
+This project is a homework  <br />
+I do not allow using it as homework for any student <br />
+Otherwise allow it to be used <br />
 So do not commit academic dishonesty.
+
+# License
+
+This project is licensed under [BSD-2-Clause][b].
+
+
+[b]: https://github.com/abdulmlik/simple-lexical-scanner/blob/master/LICENSE
