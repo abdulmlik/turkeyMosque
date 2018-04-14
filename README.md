@@ -1,7 +1,7 @@
 # turkeyMosque
 
-online booking system
-this projact is for CS315
+online booking system<br />
+this projact for CS315
 
 ===========
 
