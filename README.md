@@ -1,6 +1,7 @@
 # turkeyMosque
 
 online booking system
+this projact is for CS315
 
 ===========
 
